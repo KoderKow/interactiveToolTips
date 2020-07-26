@@ -1,0 +1,11 @@
+.navbar-nav {
+  float: none;
+}
+
+body > nav > div > ul > li:nth-child(4) {
+  float: right;
+}
+
+body > nav > div > ul > li:nth-child(4) > a {
+  padding: 3px 0;
+}
