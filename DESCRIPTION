@@ -3,7 +3,10 @@ Title: Interactive Tool Tips
 Version: 0.0.0.9000
 Authors@R: person('Kyle', 'Harris', email = 'koderkow@gmail.com', role = c('cre', 'aut'))
 Description: Demonstration of adding tooltips that display rendered content.
+Depends: R (>= 3.6.0)
 License: MIT + file LICENSE
+URL: https://github.com/KoderKow/interactiveToolTips
+BugReports: https://github.com/KoderKow/interactiveToolTips/issues
 Imports: 
     config,
     golem,
@@ -15,7 +18,6 @@ Imports:
     ggplot2,
     glue,
     plotly,
-    shinipsum,
     shinyWidgets,
     magrittr,
     shinycssloaders
@@ -24,3 +26,4 @@ LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
     testthat
+
