@@ -1,0 +1,25 @@
+Package: interactiveToolTips
+Title: Interactive Tool Tips
+Version: 0.0.0.9000
+Authors@R: person('Kyle', 'Harris', email = 'koderkow@gmail.com', role = c('cre', 'aut'))
+Description: Demonstration of adding tooltips that display rendered content.
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny,
+    pkgload,
+    processx,
+    DT,
+    dplyr,
+    ggplot2,
+    glue,
+    plotly,
+    shinipsum,
+    shinyWidgets,
+    magrittr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Suggests: 
+    testthat

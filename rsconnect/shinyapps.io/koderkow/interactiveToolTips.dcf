@@ -1,0 +1,12 @@
+name: interactiveToolTips
+title: interactiveToolTips
+username:
+account: koderkow
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2613250
+bundleId: 3436320
+url: https://koderkow.shinyapps.io/interactiveToolTips/
+when: 1595740689.98123
+asMultiple: FALSE
+asStatic: FALSE
