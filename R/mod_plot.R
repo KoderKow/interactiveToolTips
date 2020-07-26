@@ -11,7 +11,7 @@ mod_plot_ui <- function(id){
   ns <- NS(id)
   tabPanel(
     title = "Bar Charts",
-    tags$p("This is a chart that shows the top 10 clients in terms of amount of tickets purchased. Clicking a bar will trigger a tooltip that will show a plot of the selected clients earned points over time."),
+    tags$p("Below is a chart that shows the top 10 clients in terms of amount of tickets purchased. Clicking a bar will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
     shinyWidgets::dropdownButton(
       inputId = ns("tooltip"),
       width = "300px",

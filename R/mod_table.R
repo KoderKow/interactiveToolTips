@@ -11,6 +11,7 @@ mod_table_ui <- function(id){
   ns <- NS(id)
   tabPanel(
     title = "Table",
+    tags$p("Below is a table that shows the all clients with some basic demograpihcs and total tickets purchased. Clicking a bar will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
     shinyWidgets::dropdownButton(
       inputId = ns("tooltip"),
       width = "300px",
