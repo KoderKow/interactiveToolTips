@@ -17,9 +17,11 @@ mod_plot_ui <- function(id){
       width = "300px",
       margin = "25px",
       tags$style(HTML(".btn.btn-circle {display: none;}")),
-      plotOutput(ns("tooltip_plot"))
+      plotOutput(ns("tooltip_plot")) %>% 
+        shinycssloaders::withSpinner()
     ),
-    plotly::plotlyOutput(ns("plot"))
+    plotly::plotlyOutput(ns("plot")) %>% 
+      shinycssloaders::withSpinner()
   )
 }
 

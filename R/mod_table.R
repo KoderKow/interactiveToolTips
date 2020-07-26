@@ -17,7 +17,8 @@ mod_table_ui <- function(id){
       width = "300px",
       margin = "25px",
       tags$style(HTML(".btn.btn-circle {display: none;}")),
-      plotOutput(ns("tooltip_plot"))
+      plotOutput(ns("tooltip_plot")) %>% 
+        shinycssloaders::withSpinner()
     ),
     DT::dataTableOutput(ns("table"))
   )
