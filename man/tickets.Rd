@@ -4,7 +4,9 @@
 \name{tickets}
 \alias{tickets}
 \title{Ticket data from {fakir}}
-\format{A data frame with 5000 rows and 27 variables}
+\format{
+A data frame with 5000 rows and 27 variables
+}
 \source{
 \url{https://github.com/ThinkR-open/fakir}
 }

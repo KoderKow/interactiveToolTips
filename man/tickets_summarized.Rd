@@ -4,7 +4,9 @@
 \name{tickets_summarized}
 \alias{tickets_summarized}
 \title{Summarized ticket data from {fakir}}
-\format{A data frame with 200 rows and 7 variables}
+\format{
+A data frame with 200 rows and 7 variables
+}
 \source{
 \url{https://github.com/ThinkR-open/fakir}
 }
