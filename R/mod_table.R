@@ -21,7 +21,8 @@ mod_table_ui <- function(id){
         shinycssloaders::withSpinner()
     ) %>% 
       shinyjqui::jqui_draggable(),
-    DT::dataTableOutput(ns("table"))
+    DT::dataTableOutput(ns("table")) %>% 
+      shinycssloaders::withSpinner()
   )
 }
 
@@ -31,8 +32,13 @@ mod_table_ui <- function(id){
 mod_table_server <- function(input, output, session, r = r){
   ns <- session$ns
   
+  tt_id <- paste0(
+    "#dropdown-menu-",
+    ns("tooltip")
+  )
+  
   shinyjqui::jqui_resizable(
-    ns("tooltip"),
+    tt_id,
     options = list(
       helper = "resizable-helper",
       ghost = TRUE,

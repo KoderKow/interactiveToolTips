@@ -12,6 +12,7 @@ mod_plot_ui <- function(id){
   tabPanel(
     title = "Bar Charts",
     tags$p("Below is a chart that shows the top 10 clients in terms of amount of tickets purchased. Clicking a bar will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
+    class = "draggable",
     shinyWidgets::dropdownButton(
       inputId = ns("tooltip"),
       width = "300px",
@@ -19,7 +20,8 @@ mod_plot_ui <- function(id){
       tags$style(HTML(".btn.btn-circle {display: none;}")),
       plotOutput(ns("tooltip_plot")) %>% 
         shinycssloaders::withSpinner()
-    ),
+    ) %>% 
+      shinyjqui::jqui_draggable(),
     plotly::plotlyOutput(ns("plot")) %>% 
       shinycssloaders::withSpinner()
   )
@@ -31,7 +33,23 @@ mod_plot_ui <- function(id){
 mod_plot_server <- function(input, output, session){
   ns <- session$ns
   
+  tt_id <- paste0(
+    "#dropdown-menu-",
+    ns("tooltip")
+  )
+  
+  x <- shinyjqui::jqui_resizable(
+    tt_id,
+    options = list(
+      helper = "resizable-helper",
+      ghost = TRUE,
+      minWidth = 300,
+      minHeight = 425
+    )
+  )
+  
   output$plot <- plotly::renderPlotly({
+    
     p <- tickets_summarized %>%
       dplyr::slice_max(ticket_count, n = 15) %>% 
       ggplot2::ggplot() +
@@ -50,8 +68,6 @@ mod_plot_server <- function(input, output, session){
     
     click_data <- plotly::event_data("plotly_click")
     
-    print(click_data)
-    
     x <- click_data$x
     
     wanted_num_client <-
@@ -65,7 +81,7 @@ mod_plot_server <- function(input, output, session){
     
     output$tooltip_plot <- renderPlot({
       title <- glue::glue("Total point for client {wanted_num_client}")
-      
+      # print(class(x))
       p <- d %>% 
         ggplot2::ggplot() +
         ggplot2::aes(
