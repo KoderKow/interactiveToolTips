@@ -11,7 +11,7 @@ mod_table_ui <- function(id){
   ns <- NS(id)
   tabPanel(
     title = "Table",
-    tags$p("Below is a table that shows the all clients with some basic demograpihcs and total tickets purchased. Clicking a bar will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
+    tags$p("Below is a table that shows the all clients with some basic demograpihcs and total tickets purchased. Clicking a row will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
     shinyWidgets::dropdownButton(
       inputId = ns("tooltip"),
       width = "300px",
@@ -19,7 +19,8 @@ mod_table_ui <- function(id){
       tags$style(HTML(".btn.btn-circle {display: none;}")),
       plotOutput(ns("tooltip_plot")) %>% 
         shinycssloaders::withSpinner()
-    ),
+    ) %>% 
+      shinyjqui::jqui_draggable(),
     DT::dataTableOutput(ns("table"))
   )
 }
@@ -29,6 +30,16 @@ mod_table_ui <- function(id){
 #' @noRd 
 mod_table_server <- function(input, output, session, r = r){
   ns <- session$ns
+  
+  shinyjqui::jqui_resizable(
+    ns("tooltip"),
+    options = list(
+      helper = "resizable-helper",
+      ghost = TRUE,
+      minWidth = 300,
+      minHeight = 425
+    )
+  )
   
   output$table <- DT::renderDataTable({
     DT::datatable(
