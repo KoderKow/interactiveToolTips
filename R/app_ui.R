@@ -14,7 +14,18 @@ app_ui <- function(request) {
       mod_about_ui("about_ui_1"),
       mod_plot_ui("plot_ui_1"),
       mod_table_ui("table_ui_1"),
-      tabPanel(icon("github-square", class = "fa-3x"))
+      tabPanel(
+        tags$span(
+          icon("github-square", class = "fa-3x"),
+          title = "My GitHub"
+        )
+      ),
+      tabPanel(
+        tags$span(
+          icon("globe", class = "fa-3x"),
+          title = "My Website"
+        )
+      )
     )
   )
 }
