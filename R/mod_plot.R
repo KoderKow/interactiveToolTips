@@ -12,7 +12,6 @@ mod_plot_ui <- function(id){
   tabPanel(
     title = "Bar Charts",
     tags$p("Below is a chart that shows the top 10 clients in terms of amount of tickets purchased. Clicking a bar will trigger a 'tooltip' that will show a plot of the selected clients earned points over time."),
-    class = "draggable",
     shinyWidgets::dropdownButton(
       inputId = ns("tooltip"),
       width = "300px",
