@@ -9,3 +9,11 @@ body > nav > div > ul > li:nth-child(4) {
 body > nav > div > ul > li:nth-child(4) > a {
   padding: 3px 0;
 }
+
+body > nav > div > ul > li:nth-child(5) {
+  float: right;
+}
+
+body > nav > div > ul > li:nth-child(5) > a {
+  padding: 3px 15px;
+}

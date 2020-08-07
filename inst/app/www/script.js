@@ -1,8 +1,16 @@
 $( document ).ready(function() {
-  let github_icon = "body > nav > div > ul > li:nth-child(4) > a";
-  $(github_icon).attr({
+  let github = "body > nav > div > ul > li:nth-child(4) > a";
+  $(github).attr({
     href: "https://github.com/KoderKow/interactiveToolTips",
     target: "_blank"
     });
-  $(github_icon).removeAttr("data-toggle");
+  $(github).removeAttr("data-toggle");
+  
+  // Website
+  let website = "body > nav > div > ul > li:nth-child(5) > a";
+  $(website).attr({
+    href: "https://koderkow.rbind.io/",
+    target: "_blank"
+    });
+  $(website).removeAttr("data-toggle");
 });
